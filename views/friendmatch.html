@@ -1,0 +1,279 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>잠깐놀아줘요</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css/style.css" rel="stylesheet">
+    <style>
+        /* 로딩 화면 스타일 */
+        .loading-screen {
+          position: fixed;
+          top: 0;
+          left: 0;
+          width: 100%;
+          height: 100%;
+          background-color: rgba(0, 0, 0, 0.8);
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          z-index: 9999;
+          color: #fff;
+          font-size: 24px;
+        }
+      </style>
+      <script>
+        window.addEventListener('DOMContentLoaded', function() {
+            // 신청하기 버튼 요소 가져오기
+            var submitButton = document.querySelector('.btn.btn-dark.btn-block.border-0.py-3');
+
+            // 신청하기 버튼 클릭 이벤트 처리
+            submitButton.addEventListener('click', function(event) {
+            // 기본 동작 방지
+            event.preventDefault();
+
+            // 로딩 화면 표시
+            showLoadingScreen();
+
+            // 테스트용 딜레이 - 3초 후 로딩 완료
+            setTimeout(function() {
+                hideLoadingScreen();
+                showAlert();
+            }, 3000);
+        })
+    });
+
+        // 로딩 화면 표시 함수
+        function showLoadingScreen() {
+            var loadingScreen = document.createElement('div');
+            loadingScreen.classList.add('loading-screen');
+            loadingScreen.textContent = '매칭 중...';
+            document.body.appendChild(loadingScreen);
+        }
+
+        // 로딩 화면 숨기는 함수
+        function hideLoadingScreen() {
+            var loadingScreen = document.querySelector('.loading-screen');
+            if (loadingScreen) {
+            loadingScreen.parentNode.removeChild(loadingScreen);
+            }
+        }
+
+        function showAlert() {
+        var messages = [
+        "매칭 완료!\n이름: 하준현                     이름: 김민수\n거주지: 노원구                 거주지: 도봉구\n반려동물: 포메라니안      반려동물: 스피츠\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 이영수\n거주지: 노원구                 거주지: 강북구\n반려동물: 포메라니안      반려동물: 치와와\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 이재서\n거주지: 노원구                 거주지: 중랑구\n반려동물: 포메라니안      반려동물: 말티즈\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 김도현\n거주지: 노원구                 거주지: 동대문구\n반려동물: 포메라니안      반려동물: 시바견\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 남도현\n거주지: 노원구                 거주지: 종로구\n반려동물: 포메라니안      반려동물: 진돗개\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 이민규\n거주지: 노원구                 거주지: 강남구\n반려동물: 포메라니안      반려동물: 푸들\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 유동우\n거주지: 노원구                 거주지: 서초구\n반려동물: 포메라니안      반려동물: 웰시코기\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 이주현\n거주지: 노원구                 거주지: 용산구\n반려동물: 포메라니안      반려동물: 시츄\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 장재원\n거주지: 노원구                 거주지: 송파구\n반려동물: 포메라니안      반려동물: 비숑\n조율화면으로 넘어갑니다",
+        "매칭 완료!\n이름: 하준현                     이름: 조주경\n거주지: 노원구                 거주지: 구로구\n반려동물: 포메라니안      반려동물: 사모예드\n조율화면으로 넘어갑니다"
+      ];
+
+      // 랜덤한 인덱스 생성
+      var randomIndex = Math.floor(Math.random() * messages.length);
+      var selectedMessage = messages[randomIndex];
+      var confirmResult = confirm(selectedMessage);
+
+      if (confirmResult) {
+        window.location.href = "/chat";
+      }
+        };
+    </script>
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row py-3 px-lg-5">
+            <div class="col-lg-4">
+                <a href="/index" class="navbar-brand d-none d-lg-block">
+                    <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">잠깐</span>놀아줘요</h1>
+                </a>
+            </div>
+            <div class="col-lg-8 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
+            <a href="" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-primary">잠깐</span>놀아줘요</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="/index" class="nav-item nav-link">Home</a>
+                    <a href="/about" class="nav-item nav-link">About</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">동네친구매칭</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="/friendmatch" class="dropdown-item">동네친구찾기</a>
+                            <a href="/chat" class="dropdown-item">대화하기</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">임시돌봄매칭</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="/petcarematch_apply" class="dropdown-item">돌봄요청</a>
+                            <a href="/chat" class="dropdown-item">신청조율</a>
+                            <a href="/petcarematch_reg" class="dropdown-item">돌봄지원</a>
+                            <a href="/chat" class="dropdown-item">지원조율</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">게시판</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="/freeboard" class="dropdown-item">자유게시판</a>
+                            <a href="/questboard" class="dropdown-item">질문게시판</a>
+                            <a href="/infoboard" class="dropdown-item">정보게시판</a>
+                            <a href="/reviewboard" class="dropdown-item">후기게시판</a>
+                        </div>
+                    </div>
+                </div>
+                
+            </div>
+            {% if user %}
+                <font color="#FFFFFF">{{user.name}}님 환영합니다!&nbsp;&nbsp;&nbsp;</font>
+                <a href="auth/logout" class="btn btn-lg btn-light mt-4 mt-md-1 px-4">로그아웃</a>
+            {% else %}
+                <a href="/login" class="btn btn-lg btn-info mt-4 mt-md-1 px-4">로그인</a>
+                &nbsp;&nbsp;&nbsp;
+                <a href="user.html" class="btn btn-lg btn-light mt-4 mt-md-1 px-4">회원가입</a>
+            {% endif %}
+        </nav>
+    </div>
+
+
+<!-- Services Start -->
+<div class="container-fluid bg-light pt-5">
+    <div class="container py-5">
+        <div class="row pb-3">
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0">
+                    <div class="card-header position-relative border-0 p-0 mb-4">
+                        <img class="card-img-top" src="img/friend1.png" alt="">
+                    </div>
+                    <div class="card-body text-center p-0">
+                        <h3 class="flaticon-vaccine display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h2 class="mb-3">함께 산책하기</h2>
+                        <p>새로운 친구와 함께 산책을 다니며<br>활발하게 지내봐요</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-0">
+                    <div class="card-header position-relative border-0 p-0 mb-4">
+                        <img class="card-img-top" src="img/friend2.jpg" alt="">
+                    </div>
+                    <div class="card-body text-center p-0">
+                        <h3 class="flaticon-vaccine display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h2 class="mb-3">정보공유하기</h2>
+                        <p>서로의 유용한 정보를 공유하며<br>반려동물을 잘 길러보아요</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-6 col-lg-4 mb-4">
+                <div class="card border-0">
+                    <div class="card-header position-relative border-0 p-0 mb-4">
+                        <img class="card-img-top" src="img/friend3.jpg" alt="">
+                    </div>
+                    <div class="card-body text-center p-0">
+                        <h3 class="flaticon-vaccine display-3 font-weight-normal text-secondary mb-3"></h3>
+                        <h2 class="mb-3">반려동물 모임</h2>
+                        <p>반려동물간의 모임으로 친분을<br>쌓아보아요</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Services End -->
+
+
+<!-- Booking Start -->
+<div class="container-fluid">
+    <div class="container">
+        <div class="row align-items-center">
+            <div class="col-lg-5">
+                <div class="bg-primary py-5 px-4 px-sm-5">
+                    <form class="py-5">
+                        <div class="form-group">
+                            <select class="custom-select border-0 px-4" style="height: 47px;">
+                                <option selected>반려동물 종류</option>
+                                <option value="1">강아지</option>
+                                <option value="2">고양이</option>
+                            </select>
+                        </div>
+                        <div>
+                            {% if user %}
+                                <button class="btn btn-dark btn-block border-0 py-3" type="submit">친구만들기!</button>
+                            {% else %}
+                                <script>alert('로그인이 필요합니다. 로그인창으로 이동합니다.'); window.location.replace('/login');</script>
+                            {% endif %}    
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-lg-7 py-5 py-lg-0 px-3 px-lg-5">
+                <h4 class="text-secondary mb-3">사람만 친구사귀라는 법이 있나요?</h4>
+                <h1 class="display-4 mb-4">반려동물을 위해<br>친구를 만들어주세요</h1>
+                <p>반려동물에게 친구를 만들어주면서 반려인끼리도 친해지며 자주만난다면 서로에게도<br>좋겠죠?</p>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Booking Start -->
+
+
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

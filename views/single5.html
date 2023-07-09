@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <title>잠깐놀아줘요</title>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport">
+    <meta content="Free HTML Templates" name="keywords">
+    <meta content="Free HTML Templates" name="description">
+
+    <!-- Favicon -->
+    <link href="img/favicon.ico" rel="icon">
+
+    <!-- Google Web Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Nunito:wght@600;700;800&display=swap" rel="stylesheet"> 
+
+    <!-- Font Awesome -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.10.0/css/all.min.css" rel="stylesheet">
+
+    <!-- Flaticon Font -->
+    <link href="lib/flaticon/font/flaticon.css" rel="stylesheet">
+
+    <!-- Libraries Stylesheet -->
+    <link href="lib/owlcarousel/assets/owl.carousel.min.css" rel="stylesheet">
+    <link href="lib/tempusdominus/css/tempusdominus-bootstrap-4.min.css" rel="stylesheet" />
+
+    <!-- Customized Bootstrap Stylesheet -->
+    <link href="css\style.css" rel="stylesheet">
+</head>
+
+<body>
+    <!-- Topbar Start -->
+    <div class="container-fluid">
+        <div class="row py-3 px-lg-5">
+            <div class="col-lg-4">
+                <a href="/index" class="navbar-brand d-none d-lg-block">
+                    <h1 class="m-0 display-5 text-capitalize"><span class="text-primary">잠깐</span>놀아줘요</h1>                    
+                </a>
+            </div>
+            <div class="col-lg-8 text-center text-lg-right">
+                <div class="d-inline-flex align-items-center">
+                
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Topbar End -->
+
+
+    <!-- Navbar Start -->
+    <div class="container-fluid p-0">
+        <nav class="navbar navbar-expand-lg bg-dark navbar-dark py-3 py-lg-0 px-lg-5">
+            <a href="" class="navbar-brand d-block d-lg-none">
+                <h1 class="m-0 display-5 text-capitalize font-italic text-white"><span class="text-primary">잠깐</span>놀아줘요</h1>
+            </a>
+            <button type="button" class="navbar-toggler" data-toggle="collapse" data-target="#navbarCollapse">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse justify-content-between px-3" id="navbarCollapse">
+                <div class="navbar-nav mr-auto py-0">
+                    <a href="/index" class="nav-item nav-link">Home</a>
+                    <a href="/about" class="nav-item nav-link">About</a>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">동네친구매칭</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="/friendmatch" class="dropdown-item">동네친구찾기</a>
+                            <a href="/chat" class="dropdown-item">대화하기</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle" data-toggle="dropdown">임시돌봄매칭</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="/petcarematch_apply" class="dropdown-item">돌봄요청</a>
+                            <a href="/chat" class="dropdown-item">신청조율</a>
+                            <a href="/petcarematch_reg" class="dropdown-item">돌봄지원</a>
+                            <a href="/chat" class="dropdown-item">지원조율</a>
+                        </div>
+                    </div>
+                    <div class="nav-item dropdown">
+                        <a href="#" class="nav-link dropdown-toggle active" data-toggle="dropdown">게시판</a>
+                        <div class="dropdown-menu rounded-0 m-0">
+                            <a href="/freeboard" class="dropdown-item">자유게시판</a>
+                            <a href="/questboard" class="dropdown-item">질문게시판</a>
+                            <a href="/infoboard" class="dropdown-item">정보게시판</a>
+                            <a href="/reviewboard" class="dropdown-item">후기게시판</a>
+                        </div>
+                    </div>
+                </div>
+                 
+            </div>
+                {% if user %}
+                    <font color="#FFFFFF">{{user.name}}님 환영합니다!&nbsp;&nbsp;&nbsp;</font>
+                    <a href="auth/logout" class="btn btn-lg btn-light mt-4 mt-md-1 px-4">로그아웃</a>
+                {% else %}
+                    <a href="/login" class="btn btn-lg btn-info mt-4 mt-md-1 px-4">로그인</a>
+                    &nbsp;&nbsp;&nbsp;
+                    <a href="user.html" class="btn btn-lg btn-light mt-4 mt-md-1 px-4">회원가입</a>
+                {% endif %}
+        </nav>
+    </div>
+
+
+    <!-- Detail Start -->
+    <div class="container py-5">
+        <div class="row pt-5">
+            <div class="col-lg-8">
+                <div class="d-flex flex-column text-left mb-4">
+                    <h1 class="mb-3">하아 견생</h1>
+                    <div class="d-index-flex mb-2">
+                        <span class="mr-3"><i class="fa fa-user text-muted"></i> 회원5</span>
+                        <span class="mr-3"><i class="fa fa-comments text-muted"></i> 9</span>
+                    </div>
+                </div>
+
+                <div class="mb-5">
+                    <img class="img-fluid w-100 mb-4" src="img/blog6.PNG" alt="Image">
+                    <p>하아...</p>
+                </div>
+
+                <div class="mb-5">
+                    <h3 class="mb-4">댓글</h3>
+                    <div class="media mb-4">
+                        <img src="img/noname.PNG" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                        <div class="media-body">
+                            <h6>회원1</h6>
+                            <p>주인이 간식 뺏어갔나보네</p>
+                            <button class="btn btn-sm btn-light">답글</button>
+                        </div>
+                    </div>
+                    <div class="media mb-4">
+                        <img src="img/noname.PNG" alt="Image" class="img-fluid mr-3 mt-1" style="width: 45px;">
+                        <div class="media-body">
+                            <h6>회원2</h6>
+                            <p>인생 2회차 아님?</p>
+                            <button class="btn btn-sm btn-light">답글</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div style="padding: 30px; background: #f6f6f6;">
+                    <h3 class="mb-4">댓글남기기</h3>
+                    <form>
+                        <div class="form-group">
+                            <label for="message">댓글</label>
+                            <textarea id="message" cols="30" rows="5" class="form-control"></textarea>
+                        </div>
+                        <div class="form-group mb-0">
+                            <input type="submit" value="확인" class="btn btn-primary px-3">
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="col-lg-4 mt-5 mt-lg-0">
+                <div class="mb-5">
+                    <form action="">
+                        <div class="input-group">
+                            <input type="text" class="form-control form-control-lg" placeholder="Keyword">
+                            <div class="input-group-append">
+                                <span class="input-group-text bg-transparent text-primary"><i
+                                        class="fa fa-search"></i></span>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="mb-5">
+                    <h3 class="mb-4">최근 게시글</h3>
+                    <div class="d-flex align-items-center border-bottom mb-3 pb-3">
+                        <img class="img-fluid" src="img/blog-1.jpg" style="width: 80px; height: 80px;" alt="">
+                        <div class="d-flex flex-column pl-3">
+                            <a class="text-dark mb-2" href="/single">냥이 땅콩땐 썰</a>
+                            <div class="d-flex">
+                                <small class="mr-3"><i class="fa fa-user text-muted"></i> 회원1</small>
+                                <small class="mr-3"><i class="fa fa-comments text-muted"></i> 15</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center border-bottom mb-3 pb-3">
+                        <img class="img-fluid" src="img/blog-2.jpg" style="width: 80px; height: 80px;" alt="">
+                        <div class="d-flex flex-column pl-3">
+                            <a class="text-dark mb-2" href="/single2">댕댕이 걸음마 땠어요</a>
+                            <div class="d-flex">
+                                <small class="mr-3"><i class="fa fa-user text-muted"></i> 회원2</small>
+                                <small class="mr-3"><i class="fa fa-comments text-muted"></i> 10</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center border-bottom mb-3 pb-3">
+                        <img class="img-fluid" src="img/blog-3.jpg" style="width: 80px; height: 80px;" alt="">
+                        <div class="d-flex flex-column pl-3">
+                            <a class="text-dark mb-2" href="/single3">쓰읍 기다려</a>
+                            <div class="d-flex">
+                                <small class="mr-3"><i class="fa fa-user text-muted"></i> 회원3</small>
+                                <small class="mr-3"><i class="fa fa-comments text-muted"></i> 8</small>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="d-flex align-items-center border-bottom mb-3 pb-3">
+                        <img class="img-fluid" src="img/blog5.jpg" style="width: 80px; height: 80px;" alt="">
+                        <div class="d-flex flex-column pl-3">
+                            <a class="text-dark mb-2" href="/single6">빠안히...</a>
+                            <div class="d-flex">
+                                <small class="mr-3"><i class="fa fa-user text-muted"></i> 회원6</small>
+                                <small class="mr-3"><i class="fa fa-comments text-muted"></i> 5</small>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Detail End -->
+
+    <!-- JavaScript Libraries -->
+    <script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.bundle.min.js"></script>
+    <script src="lib/easing/easing.min.js"></script>
+    <script src="lib/owlcarousel/owl.carousel.min.js"></script>
+    <script src="lib/tempusdominus/js/moment.min.js"></script>
+    <script src="lib/tempusdominus/js/moment-timezone.min.js"></script>
+    <script src="lib/tempusdominus/js/tempusdominus-bootstrap-4.min.js"></script>
+
+    <!-- Contact Javascript File -->
+    <script src="mail/jqBootstrapValidation.min.js"></script>
+    <script src="mail/contact.js"></script>
+
+    <!-- Template Javascript -->
+    <script src="js/main.js"></script>
+</body>
+
+</html>

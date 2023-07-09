@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>채팅방</title>
+    <style>
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+
+      body {
+        font: 13px Helvetica, Arial;
+        background-color: #CEECF5;
+      }
+
+      form {
+        background: #eee;
+        padding: 3px;
+        position: fixed;
+        bottom: 0;
+        width: 100%;
+      }
+
+      form input {
+        border: 0;
+        border-radius: 5px;
+        padding: 10px;
+        width: 90%;
+        margin-right: 0.5%;
+      }
+
+      form button {
+        width: 9%;
+        border-radius: 5px;
+        background: #ffd600;
+        border: none;
+        padding: 10px;
+      }
+
+      form button2 {
+        width: 9%;
+        border-radius: 5px;
+        background: #ffffff;
+        border: none;
+        padding: 10px;
+      }
+
+      #messages {
+        display: flex;
+        flex-direction: column;
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+      }
+
+      .others-message-wrapper {
+        font-size: 16px;
+        max-width: 70%;
+        align-items: flex-start;
+        background-color: white;
+        border-radius: 5px;
+        padding: 3px 5px;
+        margin: 5px auto 5px 5px;
+      }
+
+      .my-message-wrapper {
+        font-size: 16px;
+        max-width: 70%;
+        align-items: flex-end;
+        background-color: #ffd600;
+        border-radius: 5px;
+        padding: 3px 5px;
+        margin: 5px 5px 5px auto;
+      }
+    </style>
+  </head>
+  <body>
+    <ul id="messages"></ul>
+    <form id="chat-form">
+      <input id="message-input" autocomplete="off" />
+      <button>전송</button>
+      <button2 onClick="location.href='/index'">나가기</button2>
+    </form>
+    
+    <script src="/socket.io/socket.io.js"></script>
+    <script>
+      // Socket.IO 클라이언트 소켓 생성
+      const socket = io();
+
+
+    // HTML 요소 참조
+    const messageForm = document.getElementById('chat-form');
+    const messageInput = document.getElementById('message-input');
+    const messageList = document.getElementById('messages');
+
+    // 메시지 전송 이벤트 핸들러
+    messageForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      const message = messageInput.value.trim();
+      if (message !== '') {
+      // 메시지 서버로 전송
+        socket.emit('chat message', message);
+        messageInput.value = '';
+      }
+    });
+
+    // 메시지 수신 이벤트 핸들러
+    socket.on('chat message', (data) => {
+      const { message, isMine } = data;
+
+      // 메시지를 화면에 추가
+      const messageWrapper = createMessageWrapper(message, isMine);
+      messageList.appendChild(messageWrapper);
+    });
+
+
+      // 메시지 래퍼 생성 함수
+      function createMessageWrapper(message, isMine) {
+        const messageWrapper = document.createElement('li');
+        messageWrapper.textContent = message;
+
+        if (isMine) {
+          messageWrapper.classList.add('my-message-wrapper');
+        } else {
+          messageWrapper.classList.add('others-message-wrapper');
+        }
+
+        return messageWrapper;
+      }
+    </script>
+    
+  </body>
+</html>
